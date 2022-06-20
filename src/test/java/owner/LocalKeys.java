@@ -2,28 +2,26 @@ package owner;
 
 import org.aeonbits.owner.Config;
 
-@Config.LoadPolicy(Config.LoadType.MERGE)
-@Config.Sources({
-        "system:properties",
-        "classpath:properties/browserstackDriver.properties"
-})
+@Config.Sources({"classpath:properties/local.properties"})
 public interface LocalKeys extends Config {
-    String username();
+    @DefaultValue("Android")
+    String platformName();
 
-    String access_key();
+    @DefaultValue("RF8N20V1PCM")
+    String deviceName();
 
-    String project();
+    @DefaultValue("12.0")
+    String platformVersion();
 
-    String build();
+    @DefaultValue("org.wikipedia.alpha")
+    String appPackage();
 
-    String name();
+    @DefaultValue("org.wikipedia.main.MainActivity")
+    String appActivity();
 
-    String app();
+    @DefaultValue("http://localhost:4723/wd/hub")
+    String localUrl();
 
-    String device();
-
-    String osVersion();
-
-    String baseUrl();
-
+    @DefaultValue("https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk")
+    String downloadAppUrl();
 }
