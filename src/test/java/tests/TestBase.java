@@ -24,7 +24,7 @@ public class TestBase {
     public static void setUp() {
         if (Objects.equals(deviceHost, "local")) {
             Configuration.browser = LocalMobileDriver.class.getName();
-        } else {
+        } else if (Objects.equals(deviceHost, "browserstack")) {
             Configuration.browser = BrowserstackMobileDriver.class.getName();
         }
         Configuration.browserSize = null;
